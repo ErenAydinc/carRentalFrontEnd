@@ -1,12 +1,19 @@
-<div class="mb-3">
+<div>
+  <label >Araba Seçiniz :</label>
+<select [(ngModel)]=brandFilter class="form-select">
+  <option *ngFor="let brand of brands " value="{{brand.id}}" >{{brand.brandName}}</option>
+</select>
+<label>Renk Seçiniz :</label>
+<select [(ngModel)]=colorFilter class="form-select">
+  <option *ngFor="let color of colors" value="{{color.id}}">{{color.colorName}}</option>
+</select>
+<div class="col-sm-3">
+  <a type="button" [routerLink]="['/cars/getcarsbybrandidandcolorid/{{brand.id}}/{{color.id}}']" 
+  class="btn btn-primary">Filtrele</a>
+</div>
+</div>
+
   <div class="col-auto">
-    <select [(ngModel)]="brandFilter" placeholder="Araç seçiniz"  class="form-select" aria-label="Default select example">
-      <option *ngFor="let brand of brands" [value]="brand.id" selected="{{getSelectBrand(brand.id)}}">{{brand.brandName}}</option>
-    </select>
-    <div class="col col-2">
-      <a 
-      routerLink="/cars/details/{{brandFilter}}" class="btn btn-warning">Filtrele</a>
-      </div>
     <label for="filterText" class="form-label">Ürün ara</label>
       <input type="text" [(ngModel)]="filterText"  class="form-control" id="filterText" placeholder="araç giriniz">
     </div>
@@ -23,11 +30,8 @@
     <li class="list-group-item">{{car.dailyPrice |vatAdded:18 |currency  }} /d (Fiyatlarımıza Kdv Dahildir)</li>
   </ul>
   <div class="card-body">
-    <section style="float:left">
-      <button  routerLink="/cars/details/{{car.id}}" type="button" class="btn btn-primary">Detay</button>
-    </section>
     <section style="float:right">
-      <button routerLink="/cars/rentals/{{car.id}}" type="button" class="btn btn-success">Kirala</button>
+      <button  routerLink="/cars/details/{{car.id}}" type="button" class="btn btn-success">Detay</button>
     </section>
    </div>
  </div>

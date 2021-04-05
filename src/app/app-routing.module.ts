@@ -1,8 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { BrandAddComponent } from './component/brand-add/brand-add.component';
+import { BrandComponent } from './component/brand/brand.component';
+import { CarAddComponent } from './component/car-add/car-add.component';
 import { CarImageComponent } from './component/car-image/car-image.component';
 import { CarComponent } from './component/car/car.component';
+import { ColorAddComponent } from './component/color-add/color-add.component';
 import { CustomerComponent } from './component/customer/customer.component';
+import { PaymentComponent } from './component/payment/payment.component';
 import { RentalComponent } from './component/rental/rental.component';
 
 const routes: Routes = [
@@ -12,7 +17,14 @@ const routes: Routes = [
   {path:"cars/color/:colorId",component:CarComponent},
   {path:"cars/details/:carId",component:CarImageComponent},
   {path:"cars/rentals/:carId",component:RentalComponent},
-  {path:"customers",component:CustomerComponent}
+  {path:"customers",component:CustomerComponent},
+  {path:"cars/rentals",component:RentalComponent},
+  {path:"cars/getcarsbybrandidandcolorid/:brandId/:colorId",component:CarComponent},
+  {path:"brands/add",component:BrandAddComponent},
+  {path:"cars/add",component:CarAddComponent},
+  {path:"colors/add",component:ColorAddComponent},
+  {path:"payments/add",component:PaymentComponent},
+  {path:"cars/payment",component:PaymentComponent}
 ];
 
 @NgModule({

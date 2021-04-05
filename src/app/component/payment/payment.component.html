@@ -1,0 +1,24 @@
+<div>
+    <img src="https://i.pinimg.com/564x/99/4a/e7/994ae7d6c9f7e06fe1cb731136cf8ea1.jpg">
+
+    <div class="card-body">
+        <form [formGroup]="payAddForm">
+         <label for="payName">İsim Soyisim</label>
+         <div class="form-group">
+          <input type="text" id="payName" formControlName="fullName" class="form-control" placeholder="İsminizi giriniz"/>
+       </div>
+       <label for="creditNumber">KrediKartı</label>
+       <div class="form-group">
+        <input type="text" id="creditNumber"  formControlName="creditNumber" class="form-control" placeholder="KrediKartı"/>
+     </div>
+       </form> 
+  </div>
+  <div>
+      <button class="btn btn-primary" (click)="add()">Ekle</button>
+  </div>
+
+
+</div>
+
+<footer class="alert alert-success">Lütfen Eksiksiz Doldurunuz</footer>
+

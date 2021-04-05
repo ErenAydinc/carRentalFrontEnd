@@ -1,0 +1,48 @@
+<div class="content">
+    <div class=mb-3>
+        <div class="card">
+            <div class="card-header"><h5 class="title">Marka ekle</h5></div>
+        </div>
+        <div class="card-body">
+              <form [formGroup]="carAddForm">
+               <label for="brandName">BrandName</label>
+               <div class="form-group">
+                <input type="text" id="brandName" formControlName="brandName" class="form-control" placeholder="brandName"/>
+             </div>
+             <label for="brandName">ColorId</label>
+               <div class="form-group">
+                <input type="number" id="colorId" formControlName="colorId" class="form-control" placeholder="colorId"/>
+             </div>
+             <label for="brandName">BrandId</label>
+               <div class="form-group">
+                <input type="number" id="brandId" formControlName="brandId" class="form-control" placeholder="brandId"/>
+             </div>
+             <label for="brandName">ColorName</label>
+               <div class="form-group">
+                <input type="text" id="colorName" formControlName="colorName" class="form-control" placeholder="colorName"/>
+             </div>
+             <label for="brandName">ModelYear</label>
+               <div class="form-group">
+                <input type="text" id="modelYear" formControlName="modelYear" class="form-control" placeholder="modelYear"/>
+             </div>
+             <label for="brandName">DailyPrice</label>
+               <div class="form-group">
+                <input type="number" id="dailyPrice" formControlName="dailyPrice" class="form-control" placeholder="dailyPrice"/>
+             </div>
+             <label for="brandName">Description</label>
+               <div class="form-group">
+                <input type="text" id="description" formControlName="description" class="form-control" placeholder="description"/>
+             </div>
+             <label for="brandName">ImagePath</label>
+               <div class="form-group">
+                <input type="file" id="imagePath" formControlName="imagePath" class="form-control" placeholder="imagePath"/>
+             </div>
+             </form> 
+        </div>
+        <div class="card-footer">
+            <button class="btn btn-fill btn-primary" (click)="add()">Ekle</button>
+        </div>
+     
+    </div>
+    
+</div>

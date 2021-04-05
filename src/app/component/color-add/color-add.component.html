@@ -1,0 +1,17 @@
+<div class=mb-3>
+    <div class="card">
+        <div class="card-header"><h5 class="title">Renk ekle</h5></div>
+    </div>
+    <div class="card-body">
+          <form [formGroup]="colorAddForm">
+           <label for="colorName">ColorName</label>
+           <div class="form-group">
+            <input type="text" id="colorName" formControlName="colorName" class="form-control" placeholder="colorName"/>
+         </div>
+         </form> 
+    </div>
+    <div class="card-footer">
+        <button class="btn btn-fill btn-primary" (click)="add()">Ekle</button>
+    </div>
+ 
+</div>

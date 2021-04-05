@@ -12,6 +12,8 @@ import { CarImageService } from 'src/app/services/car-image.service';
 export class CarImageComponent implements OnInit {
 
   cars:Car[]=[];
+
+  
   imageBasePath="https://localhost:44373/"
   constructor(private carImageService:CarImageService,
     private activatedRoute:ActivatedRoute ) { }
@@ -29,5 +31,5 @@ export class CarImageComponent implements OnInit {
       this.cars=response.data;
     })
   }
-
+  
 }
