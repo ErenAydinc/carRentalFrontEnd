@@ -1,40 +1,44 @@
 <div>
-  <label >Araba Seçiniz :</label>
-<select [(ngModel)]=brandFilter class="form-select">
-  <option *ngFor="let brand of brands " value="{{brand.id}}" >{{brand.brandName}}</option>
-</select>
-<label>Renk Seçiniz :</label>
-<select [(ngModel)]=colorFilter class="form-select">
-  <option *ngFor="let color of colors" value="{{color.id}}">{{color.colorName}}</option>
-</select>
-<div class="col-sm-3">
-  <a type="button" [routerLink]="['/cars/getcarsbybrandidandcolorid/{{brand.id}}/{{color.id}}']" 
-  class="btn btn-primary">Filtrele</a>
-</div>
+  <div>
+    <label >Araba Seçiniz :</label>
+  <select [(ngModel)]=brandFilter class="form-select">
+    <option *ngFor="let brand of brands " value="{{brand.id}}" >{{brand.brandName}}</option>
+  </select>
+  <label>Renk Seçiniz :</label>
+  <select [(ngModel)]=colorFilter class="form-select">
+    <option *ngFor="let color of colors" value="{{color.id}}">{{color.colorName}}</option>
+  </select>
+  <div class="col-sm-3">
+    <a type="button" [routerLink]="['/cars/getcarsbybrandidandcolorid/{{brand.id}}/{{color.id}}']" 
+    class="btn btn-primary">Filtrele</a>
+  </div>
+  </div>
+  
+    <div class="col-auto">
+      <label for="filterText" class="form-label">Ürün ara</label>
+        <input type="text" [(ngModel)]="filterText"  class="form-control" id="filterText" placeholder="araç giriniz">
+      </div>
+  <h4>ARAÇ LİSTESİ</h4>
+  <div class="row">
+  <div class="card" tr *ngFor="let car of cars |filterPipe:filterText"  style="width: 18rem;">
+    <img src="{{imageBasePath}}{{car.imagePath}}" routerLink="/cars/details/{{car.id}}" class="card-img-top" alt="{{car.description}} Image">
+    <div class="card-body">
+      <h5 class="card-title">{{car.brandName}}</h5>
+    </div>
+    <ul class="list-group list-group-flush" >
+      <li class="list-group-item">Marka: {{car.brandName}}</li>
+      <li class="list-group-item">{{car.modelYear}} Model</li>
+      <li class="list-group-item">{{car.findexPoint}} Findex Puanı</li>
+      <li class="list-group-item">{{car.dailyPrice |vatAdded:18 |currency  }} /d (Fiyatlarımıza Kdv Dahildir)</li>
+    </ul>
+    <div class="card-body">
+      <section style="float:right">
+        <button  routerLink="/cars/details/{{car.id}}" type="button" class="btn btn-success">Detay</button>
+      </section>
+     </div>
+   </div>
+  </div>
 </div>
 
-  <div class="col-auto">
-    <label for="filterText" class="form-label">Ürün ara</label>
-      <input type="text" [(ngModel)]="filterText"  class="form-control" id="filterText" placeholder="araç giriniz">
-    </div>
-<h4>ARAÇ LİSTESİ</h4>
-<div class="row">
-<div class="card" tr *ngFor="let car of cars |filterPipe:filterText"  style="width: 18rem;">
-  <img src="{{imageBasePath}}{{car.imagePath}}" routerLink="/cars/details/{{car.id}}" class="card-img-top" alt="{{car.description}} Image">
-  <div class="card-body">
-    <h5 class="card-title">{{car.brandName}}</h5>
-  </div>
-  <ul class="list-group list-group-flush" >
-    <li class="list-group-item">Marka: {{car.brandName}}</li>
-    <li class="list-group-item">{{car.modelYear}} Model</li>
-    <li class="list-group-item">{{car.dailyPrice |vatAdded:18 |currency  }} /d (Fiyatlarımıza Kdv Dahildir)</li>
-  </ul>
-  <div class="card-body">
-    <section style="float:right">
-      <button  routerLink="/cars/details/{{car.id}}" type="button" class="btn btn-success">Detay</button>
-    </section>
-   </div>
- </div>
-</div>
 
 

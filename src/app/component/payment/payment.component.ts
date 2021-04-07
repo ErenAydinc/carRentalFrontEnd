@@ -28,7 +28,7 @@ export class PaymentComponent implements OnInit {
     if(this.payAddForm.valid){
       let payModel=Object.assign({},this.payAddForm.value)
       this.paymentService.add(payModel).subscribe(response=>{
-        this.toastr.success(response.message,"Başarılı")
+        this.toastr.success(response.message,"Kiralama Başarılı")
       },responseError=>{
        if(responseError.error.Errors.length>0){
          for (let i = 0; i < responseError.error.Errors.length; i++) {

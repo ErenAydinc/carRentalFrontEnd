@@ -22,6 +22,8 @@ import { BrandAddComponent } from './component/brand-add/brand-add.component';
 import { CarAddComponent } from './component/car-add/car-add.component';
 import { ColorAddComponent } from './component/color-add/color-add.component';
 import { PaymentComponent } from './component/payment/payment.component';
+import { LoginComponent } from './component/login/login.component';
+import { RegisterComponent } from './component/register/register.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,8 @@ import { PaymentComponent } from './component/payment/payment.component';
     CarAddComponent,
     ColorAddComponent,
     PaymentComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     HttpClientModule,
@@ -48,6 +52,7 @@ import { PaymentComponent } from './component/payment/payment.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
     ToastrModule.forRoot({
       positionClass:"toast-bottom-right"
     }),

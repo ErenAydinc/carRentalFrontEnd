@@ -50,7 +50,7 @@ export class RentalComponent implements OnInit {
     })
   }
   submit(){
-    this.toastrService.success("Arabanız Başarıyla Kiralanmıştır")
+    this.toastrService.success("Tarihler Başarıyla Seçilmiştir")
   }
   getDate(day: number) {
     var today = new Date();
