@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AppComponent } from './app.component';
 import { BrandAddComponent } from './component/brand-add/brand-add.component';
 import { BrandComponent } from './component/brand/brand.component';
 import { CarAddComponent } from './component/car-add/car-add.component';
@@ -11,9 +12,11 @@ import { LoginComponent } from './component/login/login.component';
 import { PaymentComponent } from './component/payment/payment.component';
 import { RegisterComponent } from './component/register/register.component';
 import { RentalComponent } from './component/rental/rental.component';
+import { UserComponent } from './component/user/user.component';
 
 const routes: Routes = [
-  {path:" ",pathMatch:"full",component:CarComponent},
+  {path:" ",pathMatch:"full",component:LoginComponent},
+  {path:"login ",pathMatch:"full",component:AppComponent},
   {path:"cars",component:CarComponent},
   {path:"cars/brand/:brandId",component:CarComponent},
   {path:"cars/color/:colorId",component:CarComponent},
@@ -30,6 +33,7 @@ const routes: Routes = [
   {path:"cars/payment",component:PaymentComponent},
   {path:"login",component:LoginComponent},
   {path:"register",component:RegisterComponent},
+  {path:"user",component:UserComponent}
 ];
 
 @NgModule({

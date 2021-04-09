@@ -7,6 +7,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { ToastrService } from 'ngx-toastr';
 import { TokenDetail } from 'src/app/models/tokenModel';
 import { AuthService } from 'src/app/services/auth.service';
+import { SessionStorageService } from 'src/app/services/session-storage.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,7 @@ export class LoginComponent implements OnInit {
   tokenDetail = new TokenDetail()
   loginForm:FormGroup;
   constructor(private formBuilder:FormBuilder,
-     private authService:AuthService, private toastrService:ToastrService,private router:Router) { }
+     private authService:AuthService, private toastrService:ToastrService,private router:Router,private localStorage:SessionStorageService) { }
 
   ngOnInit(): void {
     this.createLoginForm();
@@ -46,12 +47,13 @@ export class LoginComponent implements OnInit {
       })
     }
   }
-  decodeToken(token:string){
-    let helper = new JwtHelperService()    
-    let data = helper.decodeToken(token)    
-    this.tokenDetail.email = data.email
-    this.tokenDetail.username = data['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name']
-    this.tokenDetail.claims = data['http://schemas.microsoft.com/ws/2008/06/identity/claims/role']
+
+  isAuthenticated(){
+    return this.authService.isAuthenticated();
+  }
+
+  logOut(){
+    this.authService.logOut();
   }
 
 }

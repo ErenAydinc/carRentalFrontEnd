@@ -32,8 +32,8 @@
             Seçenekler
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a routerLink="cars/add" class="dropdown-item" href="#">Araba Ekle</a></li>
+            <li><a routerLink="colors/add" class="dropdown-item" href="#">Renk Ekle</a></li>
             <li><hr class="dropdown-divider" /></li>
             <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
@@ -48,7 +48,8 @@
           >
         </li>
       </ul>
-      <button routerLink="/login" type="button" class="btn btn-primary">
+      <form *ngIf="!isAuth()"  >
+      <button  routerLink="/login" type="button" class="btn btn-primary">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
@@ -68,6 +69,8 @@
         </svg>
         Giriş yap
       </button>
+    </form>
+    <button *ngIf="isAuth()"  (click)="logOut()" type="button" class="btn btn-primary" >Çıkış</button> 
     </div>
   </div>
 </nav>
